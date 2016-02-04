@@ -17,4 +17,5 @@ Options:
   --verbose, -v           Sets the level of detail - multiple supported (-vv)
 
 Examples:
-  $ PROJECT_NAME             # TODO_DESCRIPTION
+  $ PROJECT_NAME          # TODO_BIN_DESCRIPTION
+
