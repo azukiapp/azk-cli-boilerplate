@@ -1,10 +1,10 @@
 {
-  "name": "PROJECT_NAME",
+  "name": "REPLACE_PROJECT_NAME",
   "version": "0.0.1",
-  "description": "TODO_DESCRIPTION",
+  "description": "REPLACE_TODO_DESCRIPTION",
   "main": "index.js",
   "bin": {
-    "PROJECT_NAME": "./bin/PROJECT_NAME.js"
+    "REPLACE_PROJECT_NAME": "./bin/REPLACE_PROJECT_NAME.js"
   },
   "scripts": {
     "test": "gulp test",
@@ -13,17 +13,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+PROJECT_GITHUB_URI.git"
+    "url": "git+REPLACE_PROJECT_GITHUB_URI.git"
   },
   "keywords": [
     "cli tool"
   ],
-  "author": "TODO_AUTHOR",
+  "author": "REPLACE_TODO_AUTHOR",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "PROJECT_GITHUB_URI/issues"
+    "url": "REPLACE_PROJECT_GITHUB_URI/issues"
   },
-  "homepage": "PROJECT_GITHUB_URI",
+  "homepage": "REPLACE_PROJECT_GITHUB_URI",
   "devDependencies": {
     "azk-dev": "^0.3.0",
     "gulp": "^3.9.0",

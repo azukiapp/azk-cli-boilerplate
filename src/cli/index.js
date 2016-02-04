@@ -1,7 +1,7 @@
 import path from 'path';
 import chalk from 'chalk';
 
-module.exports = class Router {
+module.exports = class MainCliRouter {
   createCli(opts) {
     const Cli = require('cli-router').Cli;
 

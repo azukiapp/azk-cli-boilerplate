@@ -1,6 +1,6 @@
-# PROJECT_NAME
+# REPLACE_PROJECT_NAME
 
-> TODO_DESCRIPTION
+> REPLACE_TODO_DESCRIPTION
 
 # TODO
 
@@ -15,26 +15,30 @@ mv azk-cli-boilerplate-master my-cli-tool
 rm master.zip
 cd my-cli-tool
 git init
+git add . -A
+git commit -m"[Project] Initial version from boilerplate"
 
 ```
 
-## configuration
-
-- rename bin file PROJECT_NAME.js to PROJECT_NAME.js:
+### Replaces in files/code
 
 ```sh
-find . -name 'PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/PROJECT_NAME.js/my-cli-tool.js}"' -- {} \;
+find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js/my-cli-tool.js}"' -- {} \;
 ```
-
-### code replaces
 
 Replace destinations are just example, **change** to real values
 
-- `PROJECT_GITHUB_URI`   to `https://github.com/azukiapp/my-cli-tool`
-- `PROJECT_NAME`         to `my-cli-tool`
-- `TODO_DESCRIPTION`     to `My Incredible Cli Tool`
-- `TODO_BIN_DESCRIPTION` to `Run incredible main function`
-- `TODO_AUTHOR`          to `Cunha Kleptus`
+```
+find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_PROJECT_GITHUB_URI/https:\/\/github.com\/azukiapp\/my-cli-tool/g' {} +
+
+find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_PROJECT_NAME/my-cli-tool/g' {} +
+
+find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_TODO_DESCRIPTION/My Incredible Cli Tool/g' {} +
+
+find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_TODO_BIN_DESCRIPTION/Run incredible main function/g' {} +
+
+find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_TODO_AUTHOR/The Author/g' {} +
+```
 
 - search all other `TODO` in code and replace with right values. Do not forget `CHANGELOG`.md and `LICENSE` files.
 - delete this section
@@ -42,19 +46,19 @@ Replace destinations are just example, **change** to real values
 ### Install
 
 ```sh
-npm install PROJECT_NAME -g
+npm install REPLACE_PROJECT_NAME -g
 ```
 
 ### Run
 
 ```sh
-PROJECT_NAME             # TODO_DESCRIPTION
+REPLACE_PROJECT_NAME             # REPLACE_TODO_DESCRIPTION
 ```
 
 ### Test and run locally
 
 ```sh
 npm test
-node ./bin/PROJECT_NAME.js -h
+node ./bin/REPLACE_PROJECT_NAME.js -h
 ```
 
