@@ -1,11 +1,11 @@
 -----------------------
- PROJECT_NAME
+ REPLACE_PROJECT_NAME
 -----------------------
 
 Usage:
-  PROJECT_NAME [<TODO_ARGUMENT>] [--no-color] [-v]...
-  PROJECT_NAME -h | --help
-  PROJECT_NAME --version
+  REPLACE_PROJECT_NAME [<TODO_ARGUMENT>] [--no-color] [-v]...
+  REPLACE_PROJECT_NAME -h | --help
+  REPLACE_PROJECT_NAME --version
 
 Arguments:
   TODO_ARGUMENT            Full path of azk binary/link [default: azk].
@@ -17,5 +17,5 @@ Options:
   --verbose, -v           Sets the level of detail - multiple supported (-vv)
 
 Examples:
-  $ PROJECT_NAME          # TODO_BIN_DESCRIPTION
+  $ REPLACE_PROJECT_NAME          # REPLACE_TODO_BIN_DESCRIPTION
 

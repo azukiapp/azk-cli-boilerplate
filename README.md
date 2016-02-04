@@ -2,18 +2,30 @@
 
 > REPLACE_TODO_DESCRIPTION
 
-# TODO
+---------------------------------------
+----- REMOVE THIS AFTER USE -----------
+---------------------------------------
 
-Suposing your project name is `my-cli-tool` and your github url is `https://github.com/azukiapp/my-cli-tool`.
+# TODO HERE
+
+## replace README vars
+
+To use this commands first replace this all occurences of bellow strings:
+
+- `__MY-CLI-TOOL__`
+- `__GITHUB_USER__`
+- `__PROJECT_DESCRIPTION__`
+- `__BIN_DEFAULT_DESCRIPTION__`
+- `__THE_AUTHOR__`
 
 ## Unzip and initialize git
 
 ```sh
-wget https://github.com/azukiapp/azk-cli-boilerplate/archive/master.zip
+wget https://github.com/__GITHUB_USER__/azk-cli-boilerplate/archive/master.zip
 unzip master.zip
-mv azk-cli-boilerplate-master my-cli-tool
+mv azk-cli-boilerplate-master __MY-CLI-TOOL__
 rm master.zip
-cd my-cli-tool
+cd __MY-CLI-TOOL__
 git init
 git add . -A
 git commit -m"[Project] Initial version from boilerplate"
@@ -24,23 +36,39 @@ git commit -m"[Project] Initial version from boilerplate"
 
 #### Replacing string in code
 
-Now you can find and replace all occurencies of `REPLACE_`. You can also execute sed to this for you if you want:
-
-> **Change** to real values
+Execute this on your new project folder:
 
 ```sh
-find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js/my-cli-tool.js}"' -- {} \;
-git add . -A
+find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js\
+/\
+__MY-CLI-TOOL__.js\
+}"' -- {} \;;\
+git add . -A;\
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
+REPLACE_PROJECT_GITHUB_URI\
+/\
+https:\/\/github.com\/__GITHUB_USER__\/__MY-CLI-TOOL__\
+/g' {} + ; \
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
+REPLACE_PROJECT_NAME\
+/\
+__MY-CLI-TOOL__\
+/g' {} + ; \
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
+REPLACE_TODO_DESCRIPTION\
+/\
+__PROJECT_DESCRIPTION__\
+/g' {} + ; \
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
+REPLACE_TODO_BIN_DESCRIPTION\
+/\
+__BIN_DEFAULT_DESCRIPTION__\
+/g' {} + ; \
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
+REPLACE_TODO_AUTHOR\
+/\
+__THE_AUTHOR__/g' {} + ;
 
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_GITHUB_URI/https:\/\/github.com\/azukiapp\/my-cli-tool/g' {} +
-
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_NAME/my-cli-tool/g' {} +
-
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_DESCRIPTION/My Incredible Cli Tool/g' {} +
-
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_BIN_DESCRIPTION/Run incredible main function/g' {} +
-
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_AUTHOR/The Author/g' {} +
 ```
 
 - search all other `TODO` in code and replace with right values. Do not forget `CHANGELOG`.md and `LICENSE` files.
@@ -50,32 +78,38 @@ find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path ".
 ```sh
 npm install
 npm test
-node ./bin/my-cli-tool.js -h
+node ./bin/__MY-CLI-TOOL__.js -h
+
 ```
 
 ## Github
 
-Create `my-cli-tool` on Github and include remote
+Create `__MY-CLI-TOOL__` on Github and include remote
 
 ```sh
-git remote add origin git@github.com:azukiapp/my-cli-tool.git
+git remote add origin git@github.com:__GITHUB_USER__/__MY-CLI-TOOL__.git
 git push origin master -u
+
 ```
 
 - Now you can **delete** this section from README ;)
 
-------------
+---------------------------------------
+----- (END) REMOVE THIS AFTER USE -----
+---------------------------------------
 
 ### Install
 
 ```sh
 npm install REPLACE_PROJECT_NAME -g
+
 ```
 
 ### Run
 
 ```sh
 REPLACE_PROJECT_NAME             # REPLACE_TODO_DESCRIPTION
+
 ```
 
 ### Test and run locally
@@ -84,5 +118,6 @@ REPLACE_PROJECT_NAME             # REPLACE_TODO_DESCRIPTION
 npm install
 npm test
 node ./bin/REPLACE_PROJECT_NAME.js -h
+
 ```
 
