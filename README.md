@@ -6,7 +6,7 @@
 
 Suposing your project name is `my-cli-tool` and your github url is `https://github.com/azukiapp/my-cli-tool`.
 
-## unzip and initialize git
+## Unzip and initialize git
 
 ```sh
 wget https://github.com/azukiapp/azk-cli-boilerplate/archive/master.zip
@@ -20,28 +20,45 @@ git commit -m"[Project] Initial version from boilerplate"
 
 ```
 
-### Replaces in files/code
+## Replaces in files/code
+
+#### Rename main **bin** file
 
 ```sh
 find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js/my-cli-tool.js}"' -- {} \;
 ```
 
-Replace destinations are just example, **change** to real values
+#### Replacing string in code
 
-```
-find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_PROJECT_GITHUB_URI/https:\/\/github.com\/azukiapp\/my-cli-tool/g' {} +
+Now you can find and replace all occurencies of `REPLACE_`. You can also execute sed to this for you if you want:
 
-find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_PROJECT_NAME/my-cli-tool/g' {} +
+> **Change** to real values
 
-find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_TODO_DESCRIPTION/My Incredible Cli Tool/g' {} +
+```sh
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_GITHUB_URI/https:\/\/github.com\/azukiapp\/my-cli-tool/g' {} +
 
-find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_TODO_BIN_DESCRIPTION/Run incredible main function/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_NAME/my-cli-tool/g' {} +
 
-find . -type f -name "*js*" -not -path "./node_modules/*" -exec sed -i 's/REPLACE_TODO_AUTHOR/The Author/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_DESCRIPTION/My Incredible Cli Tool/g' {} +
+
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_BIN_DESCRIPTION/Run incredible main function/g' {} +
+
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_AUTHOR/The Author/g' {} +
 ```
 
 - search all other `TODO` in code and replace with right values. Do not forget `CHANGELOG`.md and `LICENSE` files.
-- delete this section
+
+## Check if its still working
+
+```sh
+npm install
+npm test
+node ./bin/my-cli-tool.js -h
+```
+
+- Now you can **delete** this section from README ;)
+
+------------
 
 ### Install
 
@@ -58,6 +75,7 @@ REPLACE_PROJECT_NAME             # REPLACE_TODO_DESCRIPTION
 ### Test and run locally
 
 ```sh
+npm install
 npm test
 node ./bin/REPLACE_PROJECT_NAME.js -h
 ```
