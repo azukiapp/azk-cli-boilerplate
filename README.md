@@ -22,12 +22,6 @@ git commit -m"[Project] Initial version from boilerplate"
 
 ## Replaces in files/code
 
-#### Rename main **bin** file
-
-```sh
-find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js/my-cli-tool.js}"' -- {} \;
-```
-
 #### Replacing string in code
 
 Now you can find and replace all occurencies of `REPLACE_`. You can also execute sed to this for you if you want:
@@ -35,6 +29,9 @@ Now you can find and replace all occurencies of `REPLACE_`. You can also execute
 > **Change** to real values
 
 ```sh
+find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js/my-cli-tool.js}"' -- {} \;
+git add . -A
+
 find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_GITHUB_URI/https:\/\/github.com\/azukiapp\/my-cli-tool/g' {} +
 
 find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_NAME/my-cli-tool/g' {} +
@@ -54,6 +51,15 @@ find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path ".
 npm install
 npm test
 node ./bin/my-cli-tool.js -h
+```
+
+## Github
+
+Create `my-cli-tool` on Github and include remote
+
+```sh
+git remote add origin git@github.com:azukiapp/my-cli-tool.git
+git push origin master -u
 ```
 
 - Now you can **delete** this section from README ;)
