@@ -36,42 +36,24 @@ git commit -m"[Project] Initial version from boilerplate"
 
 #### Replacing string in code
 
-Execute this on your new project folder:
+- Execute this on your new project folder:
 
 ```sh
-find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js\
-/\
-__MY-CLI-TOOL__.js\
-}"' -- {} \;;\
-git add . -A;\
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
-REPLACE_PROJECT_GITHUB_URI\
-/\
-https:\/\/github.com\/__GITHUB_USER__\/__MY-CLI-TOOL__\
-/g' {} + ; \
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
-REPLACE_PROJECT_NAME\
-/\
-__MY-CLI-TOOL__\
-/g' {} + ; \
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
-REPLACE_TODO_DESCRIPTION\
-/\
-__PROJECT_DESCRIPTION__\
-/g' {} + ; \
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
-REPLACE_TODO_BIN_DESCRIPTION\
-/\
-__BIN_DEFAULT_DESCRIPTION__\
-/g' {} + ; \
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/\
-REPLACE_TODO_AUTHOR\
-/\
-__THE_AUTHOR__/g' {} + ;
+# replace main bin filename
+find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js/twitter-pic-downloader.js}"' -- {} \;
+git add . -A
 
+# replace other strings inside files
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_GITHUB_URI/https:\/\/github.com\/saitodisse\/twitter-pic-downloader/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_NAME/twitter-pic-downloader/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_DESCRIPTION/Downloads images from some twitter stream/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_BIN_DESCRIPTION/Download images/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_AUTHOR/saitodisse@gmail.com/g' {} +
 ```
 
-- search all other `TODO` in code and replace with right values. Do not forget `CHANGELOG`.md and `LICENSE` files.
+- Search all other `TODO` in code and replace with correct values
+- Update `CHANGELOG`.md
+- Update `LICENSE` file
 
 ## Check if its still working
 
