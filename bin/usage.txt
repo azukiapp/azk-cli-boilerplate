@@ -3,7 +3,7 @@
 -----------------------
 
 Usage:
-  REPLACE_PROJECT_NAME [<TODO_ARGUMENT>] [--no-color] [-v]...
+  REPLACE_PROJECT_NAME <TODO_ARGUMENT>... [--no-color] [-v]...
   REPLACE_PROJECT_NAME -h | --help
   REPLACE_PROJECT_NAME --version
 

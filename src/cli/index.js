@@ -1,31 +1,28 @@
 import path from 'path';
-import chalk from 'chalk';
+import { Cli } from 'cli-router';
 
 class MainCliRouter {
-  createCli(opts) {
-    const Cli = require('cli-router').Cli;
-
+  constructor(opts = {}) {
     opts.controllers_root = path.join(__dirname, './controllers');
-    const cli = new Cli(opts);
+    this._cli = new Cli(opts);
 
-    cli
+    this._cli
       .route('help', (p, args) => p.help || p['--help'] || args.length === 0)
       .route('version', (p) => p.version || p['--version'])
       .route('main', (p, args) => args.length >= 0);
+  }
 
-    const result = cli.run({ argv: process.argv.slice(2) });
-    // _promise0 will check if it is a promise result
+  run(args) {
+    const result = this._cli.run({ argv: args });
     if (result.hasOwnProperty('_promise0')) {
       return result
       .then((promiseResult) => process.exit(promiseResult))
       .catch((err) => {
-        console.error(chalk.red(err.stack ? err.stack : err.toString()));
+        console.error(err.toString());
         process.exit(1);
       });
     }
-
-    // no promise
-    process.exit(0);
+    console.error(result);
   }
 }
 
