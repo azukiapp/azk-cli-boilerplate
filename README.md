@@ -12,11 +12,11 @@
 
 To use this commands first replace this all occurences of bellow strings:
 
-- `__MY-CLI-TOOL__`
-- `__GITHUB_USER__`
-- `__PROJECT_DESCRIPTION__`
-- `__BIN_DEFAULT_DESCRIPTION__`
-- `__THE_AUTHOR__`
+- `__MY-CLI-TOOL__`              : _get-images_
+- `__GITHUB_USER__`              : _azukiapp_
+- `__PROJECT_DESCRIPTION__`      : _Cli tool to download images_
+- `__BIN_DEFAULT_DESCRIPTION__`  : _Download images for me_
+- `__THE_AUTHOR__`               : _saitodisse@gmail.com_
 
 ## Unzip and initialize git
 
