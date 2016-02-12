@@ -21,7 +21,7 @@ To use this commands first replace this all occurences of bellow strings:
 ## Unzip and initialize git
 
 ```sh
-wget https://github.com/__GITHUB_USER__/azk-cli-boilerplate/archive/master.zip
+wget https://github.com/azukiapp/azk-cli-boilerplate/archive/master.zip
 unzip master.zip
 mv azk-cli-boilerplate-master __MY-CLI-TOOL__
 rm master.zip
