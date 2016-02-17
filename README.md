@@ -8,15 +8,15 @@
 
 # TODO HERE
 
-## replace README vars
+## Replace README vars
 
-To use this commands first replace this all occurences of bellow strings:
+To use this commands first replace this all occurences of bellow strings. Use Alt + F3 to make this easier:
 
-- `__MY-CLI-TOOL__`              : _get-images_
-- `__GITHUB_USER__`              : _azukiapp_
-- `__PROJECT_DESCRIPTION__`      : _Cli tool to download images_
-- `__BIN_DEFAULT_DESCRIPTION__`  : _Download images for me_
-- `__THE_AUTHOR__`               : _saitodisse@gmail.com_
+- `__MY-CLI-TOOL__`               // example: _get-images_
+- `__GITHUB_USER__`               // example: _azukiapp_
+- `__PROJECT_DESCRIPTION__`       // example: _Cli tool to download images_
+- `__BIN_DEFAULT_DESCRIPTION__`   // example: _Download images for me_
+- `__THE_AUTHOR__`                // example: _saitodisse@gmail.com_
 
 ## Unzip and initialize git
 
@@ -40,15 +40,15 @@ git commit -m"[Project] Initial version from boilerplate"
 
 ```sh
 # replace main bin filename
-find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js/twitter-pic-downloader.js}"' -- {} \;
+find . -name 'REPLACE_PROJECT_NAME.js' -type f -exec bash -c 'mv "$1" "${1/REPLACE_PROJECT_NAME.js/__MY-CLI-TOOL__.js}"' -- {} \;
 git add . -A
 
 # replace other strings inside files
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_GITHUB_URI/https:\/\/github.com\/saitodisse\/twitter-pic-downloader/g' {} +
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_NAME/twitter-pic-downloader/g' {} +
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_DESCRIPTION/Downloads images from some twitter stream/g' {} +
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_BIN_DESCRIPTION/Download images/g' {} +
-find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_AUTHOR/saitodisse@gmail.com/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_GITHUB_URI/https:\/\/github.com\/__GITHUB_USER__\/__MY-CLI-TOOL__/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_PROJECT_NAME/__MY-CLI-TOOL__/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_DESCRIPTION/__PROJECT_DESCRIPTION__/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_BIN_DESCRIPTION/__BIN_DEFAULT_DESCRIPTION__/g' {} +
+find . -type f -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./lib/*" -exec sed -i 's/REPLACE_TODO_AUTHOR/__THE_AUTHOR__/g' {} +
 ```
 
 - Search all other `TODO` in code and replace with correct values
